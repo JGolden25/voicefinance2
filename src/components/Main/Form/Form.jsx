@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { useSpeechContext } from '@speechly/react-client';
 // import Snackbar from '../../Snackbar/Snackbar';
-// import formatDate from '../../../utils/formatDate';
+import formatDate from '../../../utils/formatDate';
 // import { ExpenseTrackerContext } from '../../../context/context';
 import { incomeCategories, expenseCategories } from '../../../constants/categories';
 import useStyles from './styles';
@@ -13,7 +13,7 @@ const initialState = {
   amount: '',
   category: '',
   type: 'Income',
-  // date: formatDate(new Date()),
+  date: formatDate(new Date()),
 };
 
 const NewTransactionForm = () => {
@@ -114,7 +114,7 @@ const NewTransactionForm = () => {
         <TextField type="number" label="Amount" value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: e.target.value })} fullWidth />
       </Grid>
       <Grid item xs={6}>
-        {/* <TextField fullWidth label="Date" type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: formatDate(e.target.value) })} /> */}
+        <TextField fullWidth label="Date" type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: formatDate(e.target.value) })} />
       </Grid>
       <Button className={classes.button} variant="outlined" color="primary" fullWidth onClick={createTransaction}>Create</Button>
     </Grid>
